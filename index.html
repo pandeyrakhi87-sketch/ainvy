@@ -1,0 +1,175 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Open Chat 💬</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            background-color: #e5ddd5;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .phone {
+            width: 320px;
+            height: 600px;
+            background-color: #efeae2;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background-color: #075e54;
+       …
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Open Chat 💬</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            background-color: #e5ddd5;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .phone {
+            width: 330px;
+            height: 620px;
+            background-color: #efeae2;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background-color: #075e54;
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+        }
+
+        .chat {
+            flex: 1;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow-y: auto;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 10px 14px;
+            border-radius: 15px;
+            margin-top: 10px;
+            font-size: 14px;
+            background-color: #dcf8c6;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .typing {
+            font-size: 13px;
+            color: #777;
+            margin-top: 10px;
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(10px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+    </style>
+</head>
+<body>
+
+<div class="phone">
+    <div class="header">
+        His Name 💚
+    </div>
+
+    <div class="chat" id="chatBox">
+        <div id="typing" class="typing">typing...</div>
+
+        <div class="message">
+            Hey… there’s something I’ve been wanting to say.
+        </div>
+
+        <div class="message">
+            You may not even realize it, but the way you show up, the way you speak, the way you understand without judging…
+        </div>
+
+        <div class="message">
+            It makes me feel seen.
+        </div>
+
+        <div class="message">
+            It makes me feel valued.
+        </div>
+
+        <div class="message">
+            And sometimes, it makes me feel like I’m standing above the world.
+        </div>
+
+        <div class="message">
+            What I know is that you are very close to my heart.
+        </div>
+
+        <div class="message">
+            Your presence has a way of calming me and lifting me at the same time.
+        </div>
+
+        <div class="message">
+            And I just hope you always remember this…
+        </div>
+
+        <div class="message">
+            You matter to me. ❤️
+        </div>
+    <div>
+   </div>
+
+<script>
+    const messages = document.querySelectorAll(".message");
+    const typing = document.getElementById("typing");
+    const chatBox = document.getElementById("chatBox");
+
+    let index = 0;
+
+    function showNextMessage() {
+        if (index < messages.length) {
+            typing.style.display = "block";
+
+            setTimeout(() => {
+                typing.style.display = "none";
+                messages[index].style.display = "block";
+                chatBox.scrollTop = chatBox.scrollHeight;
+                index++;
+                setTimeout(showNextMessage, 1500);
+            }, 1500);
+        }
+    }
+
+    window.onload = () => {
+        setTimeout(showNextMessage, 1000);
+    };
+</script>
+
+</body>
+</html>
